@@ -1,21 +1,21 @@
-# AdventOfCode
+# AdventOfCode 2023 in Elixir
 
-**TODO: Add description**
+A collection of my advent of code solutions in 2023 written in elixir.
+https://adventofcode.com
 
-## Installation
+## Prerequistes
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `advent_of_code` to your list of dependencies in `mix.exs`:
+- [Elixir](https://elixir-lang.org/install.html)
 
-```elixir
-def deps do
-  [
-    {:advent_of_code, "~> 0.1.0"}
-  ]
-end
+## Executing a solution
+
+Run the following where 'x' is the day of the challenge:
+```
+% elixir day_x.ex
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/advent_of_code>.
+## Running tests
 
+```
+% mix test test/day_x_test.exs
+```
