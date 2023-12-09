@@ -29,8 +29,7 @@ defmodule Day4 do
     winners(line)
     |> Enum.with_index()
     |> Enum.reduce(0, fn {_, i}, acc ->
-      acc = if i > 0, do: acc * 2, else: 1
-      acc
+      if i > 0, do: acc * 2, else: 1
     end)
   end
 
@@ -53,20 +52,15 @@ defmodule Day4 do
     |> Enum.reduce(0, fn {_, card_num}, acc -> acc + card_num end)
   end
 
-  defp calculate_wins(_, from, to, totals) when from > to do
-    totals
-  end
+  defp calculate_wins(_, from, to, totals) when from > to, do: totals
 
   defp calculate_wins(original_totals, from, to, totals) do
-    total_new_cards =
-      Range.new(from, to)
-      |> Enum.reduce(totals, fn card_num, acc ->
-        new_totals = increment_total(card_num, acc)
-        win_count = Enum.at(original_totals, card_num)
-        calculate_wins(original_totals, card_num + 1, card_num + win_count, new_totals)
-      end)
-
-    total_new_cards
+    Range.new(from, to)
+    |> Enum.reduce(totals, fn card_num, acc ->
+      new_totals = increment_total(card_num, acc)
+      win_count = Enum.at(original_totals, card_num)
+      calculate_wins(original_totals, card_num + 1, card_num + win_count, new_totals)
+    end)
   end
 
   defp increment_total(card_index, totals) do
