@@ -18,8 +18,7 @@ defmodule Day13 do
 
   defp calculate(filename, smudge) do
     read_file(filename)
-    |> Enum.with_index()
-    |> Enum.map(fn {{hor, vert}, i} ->
+    |> Enum.map(fn {hor, vert} ->
       h = reflection_index(hor, smudge)
       v = reflection_index(vert, smudge)
       if h == nil && v == nil, do: raise("No reflection found")
@@ -31,7 +30,7 @@ defmodule Day13 do
   defp reflection_index(rows, smudge) do
     Enum.chunk_every(rows, 2, 1, :discard)
     |> Enum.with_index()
-    |> Enum.find_index(fn {[a, b], i} ->
+    |> Enum.find_index(fn {_, i} ->
       reflected?(rows, i, 0, smudge, nil)
     end)
   end
