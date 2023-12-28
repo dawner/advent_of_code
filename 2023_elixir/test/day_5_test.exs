@@ -21,7 +21,7 @@ defmodule Day5Test do
   defp setup do
     [_ | garden_details] =
       "#{File.cwd!()}/test/files/day_5_test_input.txt"
-      |> Day5.read_file()
+      |> FileHelper.read_lines()
 
     Day5.setup_almanac(garden_details)
   end

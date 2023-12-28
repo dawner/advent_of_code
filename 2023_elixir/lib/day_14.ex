@@ -9,7 +9,7 @@ defmodule Day14 do
     Part 2: Tilt for a "cycle" (N, E, S, W) 1 million and calculate load at end
   """
   def solve(:part_1, filename) do
-    read_file(filename)
+    FileHelper.read_2d_array(filename)
     |> tilt()
     |> Enum.with_index()
     |> Enum.map(fn {line, index} -> Enum.count(line, &(&1 == "O")) * (index + 1) end)
@@ -17,7 +17,7 @@ defmodule Day14 do
   end
 
   def solve(:part_2, filename) do
-    map = read_file(filename)
+    map = FileHelper.read_2d_array(filename)
     cycles = 1_000_000_000
 
     {loop_start, loop_end, history} =
@@ -99,14 +99,6 @@ defmodule Day14 do
       end
 
     [new_line | list]
-  end
-
-  defp read_file(filename) do
-    {:ok, file_contents} = File.read(filename)
-
-    file_contents
-    |> String.split("\n", trim: true)
-    |> Enum.map(&String.split(&1, "", trim: true))
   end
 end
 

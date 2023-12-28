@@ -32,9 +32,7 @@ defmodule Day6 do
   end
 
   defp read_file(filename, count_blanks) do
-    {:ok, contents} = File.read(filename)
-
-    String.split(contents, "\n", trim: true)
+    FileHelper.read_lines(filename)
     |> Enum.map(fn s ->
       content =
         String.split(s, ":", trim: true)

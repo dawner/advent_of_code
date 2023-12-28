@@ -9,7 +9,7 @@ defmodule Day12 do
     Part 2: As above but with springs "unfolded" x5
   """
   def solve(:part_1, filename) do
-    read_file(filename)
+    FileHelper.read_2d_array(filename, " ")
     |> Enum.map(fn [line, sizes] ->
       process_line(line, sizes)
     end)
@@ -17,21 +17,13 @@ defmodule Day12 do
   end
 
   def solve(:part_2, filename) do
-    read_file(filename)
+    FileHelper.read_2d_array(filename, " ")
     |> Enum.map(fn [line, sizes] ->
       sizes = List.duplicate(sizes, 5) |> Enum.join(",")
       line = List.duplicate(line, 5) |> Enum.join("?")
       process_line(line, sizes)
     end)
     |> Enum.sum()
-  end
-
-  defp read_file(filename) do
-    {:ok, file_contents} = File.read(filename)
-
-    file_contents
-    |> String.split("\n", trim: true)
-    |> Stream.map(&String.split(&1, " ", trim: true))
   end
 
   def process_line(line, sizes) do

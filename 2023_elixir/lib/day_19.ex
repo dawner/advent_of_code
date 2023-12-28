@@ -8,11 +8,8 @@ defmodule Day19 do
     Part 1: Classify parts depending on a set of rules, counting number accepted
   """
   def solve(:part_1, filename) do
-    {:ok, file_contents} = File.read(filename)
-
     {workflows, parts} =
-      file_contents
-      |> String.split("\n", trim: true)
+      FileHelper.read_lines(filename)
       |> Enum.reduce({%{}, []}, fn line, {workflows, parts} ->
         parse_line(line, {workflows, parts})
       end)
@@ -23,8 +20,8 @@ defmodule Day19 do
     |> Enum.sum()
   end
 
-  def solve(:part_2, filename) do
-  end
+  # def solve(:part_2, filename) do
+  # end
 
   defp process("A", _, _), do: true
   defp process("R", _, _), do: false

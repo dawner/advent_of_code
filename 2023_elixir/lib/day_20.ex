@@ -116,13 +116,10 @@ defmodule Day20 do
   end
 
   defp process_file(filename) do
-    {:ok, file_contents} = File.read(filename)
-
     # Store all "connections (modules names -> destinations)
     # and initialize a map of all module states
     {connections, state} =
-      file_contents
-      |> String.split("\n", trim: true)
+      FileHelper.read_lines(filename)
       |> Enum.reduce({%{}, %{}}, fn line, {connections, state} ->
         [module, destinations] = String.split(line, " -> ", trim: true)
 

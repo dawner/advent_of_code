@@ -45,7 +45,7 @@ defmodule Day5 do
     Part 2: TODO
   """
   def solve(:part_1, filename) do
-    [seed_line | garden_details] = read_file(filename)
+    [seed_line | garden_details] = FileHelper.read_lines(filename)
 
     setup_almanac(garden_details)
 
@@ -55,7 +55,7 @@ defmodule Day5 do
 
   def solve(:part_2, filename) do
     # TODO without blowing up memory
-    [seed_line | garden_details] = read_file(filename)
+    [seed_line | garden_details] = FileHelper.read_lines(filename)
 
     setup_almanac(garden_details)
 
@@ -72,11 +72,6 @@ defmodule Day5 do
     range
     |> Enum.to_list()
     |> find_closest_location()
-  end
-
-  def read_file(filename) do
-    {:ok, contents} = File.read(filename)
-    String.split(contents, "\n", trim: true)
   end
 
   def setup_almanac(garden_details) do

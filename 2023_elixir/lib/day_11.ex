@@ -55,12 +55,7 @@ defmodule Day11 do
   end
 
   defp read_file(filename) do
-    {:ok, file_contents} = File.read(filename)
-
-    data =
-      file_contents
-      |> String.split("\n", trim: true)
-      |> Enum.map(&String.split(&1, "", trim: true))
+    data = FileHelper.read_2d_array(filename)
 
     expanded_rows = collect_expansions(data)
 

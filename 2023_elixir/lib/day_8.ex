@@ -55,9 +55,7 @@ defmodule Day8 do
   defp get_direction({_left, right}, "R"), do: right
 
   defp read_file(filename) do
-    {:ok, contents} = File.read(filename)
-    [raw_directions | raw_steps] = String.split(contents, "\n", trim: true)
-
+    [raw_directions | raw_steps] = FileHelper.read_lines(filename)
     directions = String.split(raw_directions, "", trim: true)
 
     steps =
