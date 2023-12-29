@@ -11,7 +11,7 @@ https://adventofcode.com
 
 Run the following where 'x' is the day of the challenge:
 ```
-% elixir lib/day_x.ex
+% mix run lib/day_x.ex
 ```
 
 ## Running tests
