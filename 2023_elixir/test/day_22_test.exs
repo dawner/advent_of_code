@@ -8,7 +8,7 @@ defmodule Day22Test do
     assert Day22.solve(:part_1, @filename) == 5
   end
 
-  test "solve/2 part 2 - 5000 steps" do
+  test "solve/2 part 2" do
     assert Day22.solve(:part_2, @filename) == 7
   end
 end

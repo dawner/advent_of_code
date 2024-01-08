@@ -6,6 +6,10 @@ https://adventofcode.com
 ## Prerequistes
 
 - [Elixir](https://elixir-lang.org/install.html)
+- Build the code
+```
+mix deps.get
+```
 
 ## Executing a solution
 
